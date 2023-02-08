@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "paths": {
+    "/texts": {
+      "name": "/texts",
+      "lambdaFunction": "textFunction",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update"
+        ]
+      }
+    }
+  }
+}

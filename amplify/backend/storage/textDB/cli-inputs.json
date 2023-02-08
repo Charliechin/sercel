@@ -1,0 +1,14 @@
+{
+  "resourceName": "textDB",
+  "tableName": "textDB",
+  "partitionKey": {
+    "fieldName": "author",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "text",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

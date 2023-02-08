@@ -1,0 +1,33 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sercel-dev-10534-authRole",
+      "UnauthRoleArn": "arn:aws:iam::646924620630:role/amplify-sercel-dev-10534-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::646924620630:role/amplify-sercel-dev-10534-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-sercel-dev-10534-deployment",
+      "UnauthRoleName": "amplify-sercel-dev-10534-unauthRole",
+      "StackName": "amplify-sercel-dev-10534",
+      "StackId": "arn:aws:cloudformation:eu-west-1:646924620630:stack/amplify-sercel-dev-10534/b1af4440-a74c-11ed-9bfd-0245a46ba8f9",
+      "AmplifyAppId": "d2bsm3v7olv0hq",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-sercel-dev-10534-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "sercelfb6fb9bb": {}
+      },
+      "function": {
+        "textFunction": {
+          "deploymentBucketName": "amplify-sercel-dev-10534-deployment",
+          "s3Key": "amplify-builds/textFunction-70574545645963426973-build.zip"
+        }
+      },
+      "storage": {
+        "textDB": {}
+      },
+      "api": {
+        "textAPI": {}
+      }
+    }
+  }
+}
