@@ -27,7 +27,7 @@ const UploadText = () => {
     API
       .get('textAPI', '/texts/text', {})
       .then(res => setText([...text, ...res]))
-  }, [])
+  }, [text])
 
   return (
     <Authenticator>
