@@ -1,7 +1,9 @@
-const Games = () => {
+import { withAuthenticator } from "@aws-amplify/ui-react"
+
+const Game = () => {
   return (
     <p>Game</p>
   )
 }
 
-export default Games
+export default withAuthenticator(Game)
