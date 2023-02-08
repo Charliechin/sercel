@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react"
 import { API } from "aws-amplify"
 import '@aws-amplify/ui-react/styles.css'
 import { Button } from "@chakra-ui/react"
+import { withAuthenticator } from "@aws-amplify/ui-react"
 
 
 const UploadText = () => {
@@ -35,4 +36,4 @@ const UploadText = () => {
   )
 }
 
-export default UploadText
+export default withAuthenticator(UploadText)
