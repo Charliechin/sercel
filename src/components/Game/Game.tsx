@@ -3,6 +3,9 @@ import { useEffect, useState } from "react"
 import TypingComponent from "../TypingComponent/TypingComponent"
 import { IText } from "../../interfaces/IText"
 import useFetchData from "../../hooks/useFetch"
+import { Box, Button, useDisclosure } from "@chakra-ui/react"
+import MyModal from "../Modal/Modal"
+
 
 const Game = () => {
 
@@ -13,29 +16,25 @@ const Game = () => {
     correctChar: 0,
     errors: 0
   })
-  // const [textsFromDB, setTextsFromDB] = useState<IText[] | []>([])
 
   const [data, loading] = useFetchData<IText[]>()
+
   const [currentQuote, setCurrentQuote] = useState<IText>({
     author: 'Friedrich Nietzsche',
     text: 'That which does not kill us makes us stronger'
   })
+
   const [isCompleted, setIsCompleted] = useState(false)
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     if (result.wpm === 0 || isNaN(result.wpm)) return
     if (result.duration === 0) return
+    setIsCompleted(true)
   }, [result])
 
 
 
-
-
-  // if (!loading && data) {
-  //   const randomElement = data[Math.floor(Math.random() * data.length)];
-  //   setCurrentQuote(randomElement)
-
-  // }
 
   useEffect(() => {
     if (!data) return
@@ -50,22 +49,29 @@ const Game = () => {
         <h6>React app demo for Sercel</h6>
       </div>
       {/* <h5>Esc to reset</h5> */}
-      <div className="border-2 p-4 rounded-lg">
+      <Box className="border-2 p-4 rounded-lg" mb={5}>
         <h1 className="mb-2">{currentQuote.author}</h1>
         {loading ?
           <p>Loading...</p> :
           <TypingComponent
-            // text={"A person may be proud without being vain. Pride relates more to our opinion of ourselves, vanity to what we would have others think of us."}
             text={currentQuote.text}
             setResult={setResult}
-            setIsCompleted={setIsCompleted}
           />
         }
-      </div>
+      </Box>
 
       {isCompleted ?
-        <p>Completed</p> : <p>not Completed</p>
+        <Button size="lg" colorScheme="blue" onClick={onOpen}>Submit Score</Button> :
+        null
       }
+
+      <MyModal
+        title="Submit score"
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <p>hola</p>
+      </MyModal>
     </div>
   )
 }
