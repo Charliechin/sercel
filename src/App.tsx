@@ -2,7 +2,6 @@ import React from 'react';
 import { Amplify } from 'aws-amplify'
 import '@aws-amplify/ui-react/styles.css'
 import awsConfig from './aws-exports'
-import { withAuthenticator } from '@aws-amplify/ui-react'
 import { Route, Routes } from 'react-router-dom';
 import Rules from './components/Rules/Rules';
 import Game from './components/Game/Game';
@@ -23,11 +22,10 @@ function App() {
         <Route path="/scoreboard" element={<Scoreboard />}></Route>
         <Route path="/upload-text" element={<UploadText />}></Route>
       </Routes>
-      <header className="App-header">Hello</header>
       {/* TODO: Sign out btn */}
 
     </div>
   );
 }
 
-export default withAuthenticator(App);
+export default App
