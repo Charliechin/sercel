@@ -61,7 +61,7 @@ const NavBar = ({ authenticated, ...props }: INavBarProps) => {
       >
         <MenuItems><Link to="/game">Game</Link></MenuItems>
         <MenuItems><Link to="/rules">Rules</Link></MenuItems>
-        <MenuItems><Link to="/scoreboard">Scoreboard</Link></MenuItems>
+        <MenuItems><Link to="/upload-text">Add quote</Link></MenuItems>
       </Box>
 
       <Box
