@@ -34,8 +34,6 @@ const Game = () => {
   }, [result])
 
 
-
-
   useEffect(() => {
     if (!data) return
     const randomElement = data[Math.floor(Math.random() * data.length)];
@@ -48,7 +46,6 @@ const Game = () => {
         <h1 className="text-3xl font-bold">Type as fast as you can!</h1>
         <h6>React app demo for Sercel</h6>
       </div>
-      {/* <h5>Esc to reset</h5> */}
       <Box className="border-2 p-4 rounded-lg" mb={5}>
         <h1 className="mb-2">{currentQuote.author}</h1>
         {loading ?

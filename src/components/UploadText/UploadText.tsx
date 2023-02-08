@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react"
 import { API } from "aws-amplify"
 import '@aws-amplify/ui-react/styles.css'
-import { Button } from "@chakra-ui/react"
+import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { withAuthenticator } from "@aws-amplify/ui-react"
 
 
@@ -24,14 +24,23 @@ const UploadText = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input value={author} placeholder="Jane Austen" onChange={(e) => setAuthor(e.target.value)} />
-        <br />
-        <input value={textBody} placeholder="Lorem Ipsum" onChange={(e) => setTextBody(e.target.value)} />
-        <br />
-        <br />
-        <Button colorScheme="blue" type="submit">Add text</Button>
-      </form>
+      <div className="container mx-auto flex flex-col p-4">
+        <div className="mb-4">Save a quote to DynamoDB</div>
+        <form onSubmit={handleSubmit}>
+          <FormControl mb={5}>
+            <FormLabel>Author</FormLabel>
+            <Input value={author} placeholder='Author' onChange={(e) => setAuthor(e.target.value)} />
+          </FormControl>
+          <FormControl mb={5}>
+            <FormLabel>Quote</FormLabel>
+            <Input value={textBody} placeholder='Author' onChange={(e) => setTextBody(e.target.value)} />
+          </FormControl>
+          {/* <input value={author} placeholder="Jane Austen" onChange={(e) => setAuthor(e.target.value)} /> */}
+          {/* <br /> */}
+          {/* <input value={textBody} placeholder="Lorem Ipsum" onChange={(e) => setTextBody(e.target.value)} /> */}
+          <Button colorScheme="blue" type="submit">Add text</Button>
+        </form>
+      </div>
     </>
   )
 }
