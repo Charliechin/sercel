@@ -39,9 +39,6 @@ const UploadText = () => {
             <button type="submit">Add text</button>
             <button onClick={signOut}>Sign out</button>
           </form>
-          <ul>
-            {text.map((el, index) => <li key={index}>{el.text} - <strong>{el.author}</strong></li>)}
-          </ul>
         </>
       )}
     </Authenticator>
