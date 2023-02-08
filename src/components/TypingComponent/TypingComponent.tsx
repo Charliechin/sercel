@@ -9,7 +9,7 @@ import useTyping from "react-typing-game-hook";
 //   errors: number;
 // }>>
 
-const TypingComponent: FC<{ text: string, setResult: any, setIsCompleted: any }> = ({ text, setResult, setIsCompleted }) => {
+const TypingComponent: FC<{ text: string, setResult: any }> = ({ text, setResult }) => {
   const [duration, setDuration] = useState(0);
   const [typingInput, setTypingInput] = useState("");
   const [typedWrong, setTypeWrong] = useState(false);
@@ -74,7 +74,6 @@ const TypingComponent: FC<{ text: string, setResult: any, setIsCompleted: any }>
   const reset = () => {
     resetTyping()
     setTypingInput("")
-    setIsCompleted(false)
   };
 
   //Submit inputted word
@@ -110,7 +109,6 @@ const TypingComponent: FC<{ text: string, setResult: any, setIsCompleted: any }>
       errorChar
     })
 
-    // }, [duration])
   }, [correctChar, errorChar, setResult, text.length, duration])
 
 
