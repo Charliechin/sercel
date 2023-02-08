@@ -70,7 +70,7 @@ const Game = () => {
         isOpen={isOpen}
         onClose={onClose}
       >
-        <p>hola</p>
+        <p>Score Submitted</p>
       </MyModal>
     </div>
   )
