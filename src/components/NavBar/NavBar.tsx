@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Box, Heading, Flex, Text, Button } from '@chakra-ui/react'
 import { INavBarProps, IMenuItemsProps } from '../../interfaces/INavBar'
-// import useAuth from "@/hooks/useAuth";
-import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const MenuItems: FC<IMenuItemsProps> = ({ children }) => (
@@ -12,15 +12,15 @@ const MenuItems: FC<IMenuItemsProps> = ({ children }) => (
 )
 
 const NavBar = ({ authenticated, ...props }: INavBarProps) => {
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
-  // const { isAuthenticated, signOut } = useAuth()
-  // const router = useRouter()
+  const { user, isAuthenticated, signOut } = useAuth()
+  const navigate = useNavigate()
 
-  // const handleLogOut = async () => {
-  //   await signOut()
-  //   // router.push('/')
-  // }
+  const handleLogOut = async () => {
+    await signOut()
+    navigate('/')
+  }
 
   return (
     <Flex
@@ -68,14 +68,22 @@ const NavBar = ({ authenticated, ...props }: INavBarProps) => {
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-        {/* {isAuthenticated ?
-          <Button bg="transparent" onClick={() => handleLogOut()} border="1px">
-            Sign out
-          </Button>
-          : <Link to="/signin">
-            <Button bg="transparent" border="1px" >Sign in</Button>
-          </Link>
-        } */}
+        {isAuthenticated ?
+          (
+            <>
+              <Text mb={2}>Hello {user.attributes.name}</Text>
+              <Button bg="transparent" onClick={() => handleLogOut()} border="1px">
+                Sign out
+              </Button>
+            </>
+          )
+          :
+          (
+            <Link to="/game">
+              <Button bg="transparent" border="1px" >Sign in</Button>
+            </Link>
+          )
+        }
       </Box>
     </Flex>
   );
